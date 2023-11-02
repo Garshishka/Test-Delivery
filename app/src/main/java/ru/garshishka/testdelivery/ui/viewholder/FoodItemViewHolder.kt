@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.garshishka.testdelivery.databinding.LayoutFoodItemBinding
 import ru.garshishka.testdelivery.dto.Food
+import ru.garshishka.testdelivery.utils.load
 
 class FoodItemViewHolder(
     private val binding: LayoutFoodItemBinding
@@ -16,6 +17,7 @@ class FoodItemViewHolder(
             foodName.text = food.name
             foodDescription.text = food.description
             buyItemButton.text = "${food.price.toInt()} руб."
+            foodPicture.load(food.imageUrl)
         }
     }
 }
