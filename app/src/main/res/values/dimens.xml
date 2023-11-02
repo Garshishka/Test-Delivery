@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="panel_size">151dp</dimen>
+    <dimen name="picture_size">135dp</dimen>
+    <dimen name="def_margin">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="food_name_height">19dp</dimen>
+    <dimen name="info_panel_size">171dp</dimen>
+    <dimen name="description_height">68dp</dimen>
+</resources>

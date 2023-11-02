@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/panel_size">
+
+    <ImageView
+        android:id="@+id/food_picture"
+        android:layout_width="@dimen/picture_size"
+        android:layout_height="@dimen/picture_size"
+        android:layout_marginStart="@dimen/def_margin"
+
+        android:contentDescription="@string/food_picture_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/info_panel_size"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/def_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/food_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/food_name_height"
+            android:textAppearance="@style/food_name_style"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/food_description"
+            android:maxLines="1"
+
+            tools:text="Food item name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/food_description"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/description_height"
+            android:textAppearance="@style/food_description_style"
+            android:layout_marginTop="@dimen/small_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/food_name"
+            app:layout_constraintBottom_toTopOf="@id/buy_item_button"
+
+            tools:text="Food description. It's pretty long. \n New line."
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buy_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            app:layout_constraintTop_toBottomOf="@id/food_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textAppearance="@style/buy_button_syle"
+            tools:text= "567 руб."
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

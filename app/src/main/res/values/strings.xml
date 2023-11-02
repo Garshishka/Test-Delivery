@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Test Delivery</string>
+    <string name="loading_retry">Loading failed. Retry</string>
+    <string name="food_picture_desc">Food picture</string>
 </resources>

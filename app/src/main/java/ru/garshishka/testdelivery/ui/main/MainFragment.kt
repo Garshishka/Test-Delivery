@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ru.garshishka.testdelivery.R
+import by.kirich1409.viewbindingdelegate.CreateMethod
+import by.kirich1409.viewbindingdelegate.viewBinding
+import ru.garshishka.testdelivery.databinding.FragmentMainBinding
+import ru.garshishka.testdelivery.ui.viewholder.FoodListAdapter
+import ru.garshishka.testdelivery.webapi.DataFeedState
 
 class MainFragment : Fragment() {
+    private val binding: FragmentMainBinding by viewBinding(createMethod = CreateMethod.INFLATE)
 
     companion object {
         fun newInstance() = MainFragment()
@@ -19,14 +25,38 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(FoodViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
+
+    private val adapter = FoodListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        subscribe()
+
+        return binding.root
+    }
+
+    private fun subscribe(){
+        binding.apply {
+            foodList.adapter = adapter
+            loadingFailedButton.setOnClickListener {
+                viewModel.load()
+            }
+        }
+
+        viewModel.apply {
+            foodData.observe(viewLifecycleOwner){
+                println("allo")
+                adapter.submitList(it)
+            }
+            dataState.observe(viewLifecycleOwner){
+                binding.loading.isVisible = it == DataFeedState.Loading
+                binding.loadingFailedButton.isVisible = it == DataFeedState.Error
+            }
+        }
     }
 
 }

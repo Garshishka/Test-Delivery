@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Тестовая Доставка</string>
+    <string name="loading_retry">Данные не загружены. Повторить</string>
+    <string name="food_picture_desc">Фотография еды</string>
+</resources>
