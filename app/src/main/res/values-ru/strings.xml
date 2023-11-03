@@ -3,4 +3,10 @@
     <string name="app_name">Тестовая Доставка</string>
     <string name="loading_retry">Данные не загружены. Повторить</string>
     <string name="food_picture_desc">Фотография еды</string>
+    <string-array name="location">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Урюпинск</item>
+        <item>Другое</item>
+    </string-array>
 </resources>

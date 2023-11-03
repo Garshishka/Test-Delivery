@@ -2,4 +2,10 @@
     <string name="app_name">Test Delivery</string>
     <string name="loading_retry">Loading failed. Retry</string>
     <string name="food_picture_desc">Food picture</string>
+    <string-array name="location">
+        <item>Moscow</item>
+        <item>Saint-Petersburg</item>
+        <item>Uryupinsk</item>
+        <item>Other</item>
+    </string-array>
 </resources>
