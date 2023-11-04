@@ -11,6 +11,9 @@ interface FoodDao {
     @Query("SELECT * FROM food_table")
     fun getAll(): LiveData<List<FoodEntity>>
 
+    @Query("DELETE FROM food_table")
+    suspend fun clearTable()
+
     @Upsert
     suspend fun saveAll(list: List<FoodEntity>)
 }

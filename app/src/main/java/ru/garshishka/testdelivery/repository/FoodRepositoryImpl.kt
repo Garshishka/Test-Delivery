@@ -26,6 +26,7 @@ class FoodRepositoryImpl @Inject constructor(
         }
         val food = response.body() ?: throw RuntimeException("body is null")
 
+        foodDao.clearTable()
         foodDao.saveAll(food.map(FoodEntity.Companion::fromDto))
     }
 }

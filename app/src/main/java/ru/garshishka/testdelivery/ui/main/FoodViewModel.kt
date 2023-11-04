@@ -30,10 +30,10 @@ class FoodViewModel @Inject constructor(
     fun load() = viewModelScope.launch {
         _dataState.value = DataFeedState.Loading
 
-        try{
+        try {
             foodRepository.getAll()
             _dataState.value = DataFeedState.Idle
-        } catch (e:Exception){
+        } catch (e: Exception) {
             _dataState.value = DataFeedState.Error
         }
     }
