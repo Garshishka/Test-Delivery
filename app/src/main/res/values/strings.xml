@@ -17,4 +17,7 @@
     <string name="chip_drinks">Drinks</string>
     <string name="chip_desserts">Desserts</string>
     <string name="chip_sauces">Sauces</string>
+    <string name="menu_text">Menu</string>
+    <string name="profile_text">Profile</string>
+    <string name="cart_text">Cart</string>
 </resources>

@@ -18,4 +18,7 @@
     <string name="chip_drinks">Напитки</string>
     <string name="chip_sauces">Соусы</string>
     <string name="chip_desserts">Десерты</string>
+    <string name="menu_text">Меню</string>
+    <string name="profile_text">Профиль</string>
+    <string name="cart_text">Корзина</string>
 </resources>

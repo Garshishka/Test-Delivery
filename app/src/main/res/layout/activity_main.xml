@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginTop="@dimen/bigger_margin"
-        android:layout_marginBottom="@dimen/def_margin">
+        android:layout_marginBottom="@dimen/def_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/container">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -49,10 +53,70 @@
         android:id="@+id/container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_toolbar"
+        app:layout_constraintBottom_toTopOf="@id/bottom_toolbar"
         tools:context=".MainActivity">
 
     </androidx.fragment.app.FragmentContainerView>
-</LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container"
+
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_button"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/menu_icon"
+            android:text="@string/menu_text"
+            style="@style/bottom_menu_button_style"
+            app:iconTint="@color/active_text"
+            android:textColor="@color/active_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/profile_button"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/profile_button"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/person_icon"
+            android:text="@string/profile_text"
+            style="@style/bottom_menu_button_style"
+            app:layout_constraintStart_toEndOf="@id/menu_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cart_button"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cart_button"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/cart_icon"
+            android:text="@string/cart_text"
+            style="@style/bottom_menu_button_style"
+            app:layout_constraintStart_toEndOf="@id/profile_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

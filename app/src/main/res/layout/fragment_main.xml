@@ -61,28 +61,66 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom">
 
-        <com.google.android.material.chip.ChipGroup
+        <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-        >
+            android:scrollbars="none">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_pizza"
-                android:layout_width="@dimen/chip_width"
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                style="@style/chip_filter"
-                android:text="@string/chip_pizza"/>
+                app:singleLine="true"
+                app:singleSelection="true"
+                android:layout_gravity="bottom|center"
+                >
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_combo"
-                android:layout_width="@dimen/chip_width"
-                android:layout_height="wrap_content"
-                style="@style/chip_filter"
-                android:text="@string/chip_combo"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_pizza"
+                    android:layout_width="@dimen/chip_width"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    style="@style/chip_filter"
+                    android:text="@string/chip_pizza"/>
 
-        </com.google.android.material.chip.ChipGroup>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_combo"
+                    android:layout_width="@dimen/chip_width"
+                    android:layout_height="wrap_content"
+                    style="@style/chip_filter"
+                    android:text="@string/chip_combo"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_snacks"
+                    android:layout_width="@dimen/chip_width"
+                    android:layout_height="wrap_content"
+                    style="@style/chip_filter"
+                    android:text="@string/chip_snacks"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_drinks"
+                    android:layout_width="@dimen/chip_width"
+                    android:layout_height="wrap_content"
+                    style="@style/chip_filter"
+                    android:text="@string/chip_drinks"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_desserts"
+                    android:layout_width="@dimen/chip_width"
+                    android:layout_height="wrap_content"
+                    style="@style/chip_filter"
+                    android:text="@string/chip_desserts"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_sauces"
+                    android:layout_width="@dimen/chip_width"
+                    android:layout_height="wrap_content"
+                    style="@style/chip_filter"
+                    android:text="@string/chip_sauces"/>
+
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
     </androidx.appcompat.widget.Toolbar>
 
 
