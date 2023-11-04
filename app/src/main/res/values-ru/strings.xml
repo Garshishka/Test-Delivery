@@ -9,4 +9,13 @@
         <item>Урюпинск</item>
         <item>Другое</item>
     </string-array>
+    <string name="qr_code">QR-код</string>
+    <string name="location">Локация</string>
+    <string name="qr_code_pressed">Вы нажали QR код!</string>
+    <string name="chip_pizza">Пицца</string>
+    <string name="chip_combo">Комбо</string>
+    <string name="chip_snacks">Закуски</string>
+    <string name="chip_drinks">Напитки</string>
+    <string name="chip_sauces">Соусы</string>
+    <string name="chip_desserts">Десерты</string>
 </resources>

@@ -7,4 +7,10 @@
     <dimen name="food_name_height">19dp</dimen>
     <dimen name="info_panel_size">171dp</dimen>
     <dimen name="description_height">68dp</dimen>
+    <dimen name="banner_pic_width">300dp</dimen>
+    <dimen name="banner_pic_height">112dp</dimen>
+    <dimen name="bigger_margin">24dp</dimen>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="chip_width">88dp</dimen>
+    <dimen name="collapsing_banner_height">136dp</dimen>
 </resources>

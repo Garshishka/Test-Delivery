@@ -2,10 +2,19 @@
     <string name="app_name">Test Delivery</string>
     <string name="loading_retry">Loading failed. Retry</string>
     <string name="food_picture_desc">Food picture</string>
+    <string name="qr_code">QR-code</string>
+    <string name="location">Location</string>
     <string-array name="location">
         <item>Moscow</item>
         <item>Saint-Petersburg</item>
         <item>Uryupinsk</item>
         <item>Other</item>
     </string-array>
+    <string name="qr_code_pressed">You pressed the QR code!</string>
+    <string name="chip_pizza">Pizza</string>
+    <string name="chip_combo">Combo</string>
+    <string name="chip_snacks">Snacks</string>
+    <string name="chip_drinks">Drinks</string>
+    <string name="chip_desserts">Desserts</string>
+    <string name="chip_sauces">Sauces</string>
 </resources>

@@ -12,4 +12,13 @@
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">#FD3A69</item>
     </style>
+    <style name="rounded_square">
+        <item name="cornerSize">20%</item>
+    </style>
+    <style name="chip_filter" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textSize">13sp</item>
+        <item name="chipCornerRadius">4dp</item>
+        <item name="chipBackgroundColor">@color/chip_select_color</item>
+
+    </style>
 </resources>
