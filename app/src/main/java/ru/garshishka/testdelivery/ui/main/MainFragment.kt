@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import ru.garshishka.testdelivery.R
 import ru.garshishka.testdelivery.databinding.FragmentMainBinding
 import ru.garshishka.testdelivery.ui.bannerPictures
@@ -17,19 +18,10 @@ import ru.garshishka.testdelivery.ui.viewholder.BannerPicListAdapter
 import ru.garshishka.testdelivery.ui.viewholder.FoodListAdapter
 import ru.garshishka.testdelivery.webapi.DataFeedState
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
     private val binding: FragmentMainBinding by viewBinding(createMethod = CreateMethod.INFLATE)
-
-//    companion object {
-//        fun newInstance() = MainFragment()
-//    }
-
-    private lateinit var viewModel: FoodViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FoodViewModel::class.java)
-    }
+    private val viewModel:FoodViewModel by activityViewModels()
 
     private val adapter = FoodListAdapter()
     private val bannerAdapter = BannerPicListAdapter()
@@ -51,7 +43,6 @@ class MainFragment : Fragment() {
                 android.R.layout.simple_spinner_item
                 ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
-                //binding.dropdownLocation.adapter = adapter
             }
         }
     }
@@ -69,7 +60,6 @@ class MainFragment : Fragment() {
 
         viewModel.apply {
             foodData.observe(viewLifecycleOwner){
-                println("allo")
                 adapter.submitList(it)
             }
             dataState.observe(viewLifecycleOwner){

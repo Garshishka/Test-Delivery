@@ -4,15 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.garshishka.testdelivery.dto.Food
+import ru.garshishka.testdelivery.repository.FoodRepository
 import ru.garshishka.testdelivery.webapi.DataFeedState
-import ru.garshishka.testdelivery.webapi.getApiService
+import javax.inject.Inject
 
-class FoodViewModel : ViewModel() {
-    private val _foodData = MutableLiveData<List<Food>>()
+@HiltViewModel
+class FoodViewModel @Inject constructor(
+    private val foodRepository: FoodRepository,
+) : ViewModel() {
     val foodData: LiveData<List<Food>>
-        get() = _foodData
+        get() = foodRepository.foodData
 
     private val _dataState = MutableLiveData<DataFeedState>(DataFeedState.Idle)
     val dataState: LiveData<DataFeedState>
@@ -26,18 +30,11 @@ class FoodViewModel : ViewModel() {
     fun load() = viewModelScope.launch {
         _dataState.value = DataFeedState.Loading
 
-        val apiService = getApiService()
-
-        val response = apiService.getProducts()
-        if (!response.isSuccessful) {
+        try{
+            foodRepository.getAll()
+            _dataState.value = DataFeedState.Idle
+        } catch (e:Exception){
             _dataState.value = DataFeedState.Error
-            throw RuntimeException(response.message().toString())
         }
-        val foodList = response.body() ?: throw RuntimeException("body is null")
-        _foodData.value = foodList
-        foodList.forEach {
-            println(it)
-        }
-        _dataState.value = DataFeedState.Idle
     }
 }

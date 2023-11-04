@@ -71,14 +71,12 @@
                 android:layout_height="wrap_content"
                 app:singleLine="true"
                 app:singleSelection="true"
-                android:layout_gravity="bottom|center"
                 >
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_pizza"
                     android:layout_width="@dimen/chip_width"
                     android:layout_height="wrap_content"
-                    android:checked="true"
                     style="@style/chip_filter"
                     android:text="@string/chip_pizza"/>
 

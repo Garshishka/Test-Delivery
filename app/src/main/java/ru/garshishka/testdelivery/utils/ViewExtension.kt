@@ -4,7 +4,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import ru.garshishka.testdelivery.R
 
-fun ImageView.load(url: String, timeout: Int = 10_000) {
+fun ImageView.load(url: String, timeout: Int = 50_000) {
     Glide.with(this)
         .load(url)
         .circleCrop()
